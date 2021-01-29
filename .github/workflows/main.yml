@@ -1,27 +1,32 @@
-name: Python application
+name: dailyreminder
 
 on:
+
   push:
     branches: 
       - master
   schedule:
-      - cron: '30 0 * * *'
-      - cron: '0 2 * * *'
+    - cron: '30 0 * * *' 
+    - cron: '0 2 * * *' 
+
+  workflow_dispatch:
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-       - name: checkout actions
-       - uses: actions/checkout@v2
 
-       - name: Set up Python 3.7
-       - uses: actions/setup-python@v2
-         with:
-             python-version: 3.7
-        
-       - name: running
-         run: |
-            python ./daily-reminder.py
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v2
+        with:
+           python-version: 3.7
+
+      - name: 'Working'
+        run: |
+          python ./daily-reminder.py
