@@ -25,5 +25,3 @@ jobs:
        - name: running
          run: |
             python ./daily-reminder.py
-        	
-
